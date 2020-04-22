@@ -1,0 +1,175 @@
+{
+  "_tiles": [
+    {
+      "_position": {
+        "_x": 0,
+        "_y": 0
+      },
+      "_nbr": 3,
+      "_resource": "Grain",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 2,
+        "_y": 3
+      },
+      "_nbr": 3,
+      "_resource": "Grain",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 4,
+        "_y": 3
+      },
+      "_nbr": 11,
+      "_resource": "Lumber",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 2,
+        "_y": 0
+      },
+      "_nbr": 9,
+      "_resource": "Lumber",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 0,
+        "_y": 2
+      },
+      "_nbr": 6,
+      "_resource": "Grain",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 2,
+        "_y": 4
+      },
+      "_nbr": 8,
+      "_resource": "Grain",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 3,
+        "_y": 3
+      },
+      "_nbr": 2,
+      "_resource": "Ore",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 1,
+        "_y": 3
+      },
+      "_nbr": 5,
+      "_resource": "Brick",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 2,
+        "_y": 2
+      },
+      "_nbr": 4,
+      "_resource": "Brick",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 4,
+        "_y": 2
+      },
+      "_nbr": 4,
+      "_resource": "Lumber",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 1,
+        "_y": 0
+      },
+      "_nbr": 6,
+      "_resource": "Ore",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 3,
+        "_y": 1
+      },
+      "_nbr": 5,
+      "_resource": "Lumber",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 1,
+        "_y": 1
+      },
+      "_nbr": 10,
+      "_resource": "Ore",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 2,
+        "_y": 1
+      },
+      "_nbr": 12,
+      "_resource": "Wool",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 1,
+        "_y": 2
+      },
+      "_nbr": 0,
+      "_resource": "Desert",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 3,
+        "_y": 2
+      },
+      "_nbr": 9,
+      "_resource": "Wool",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 3,
+        "_y": 4
+      },
+      "_nbr": 11,
+      "_resource": "Brick",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 0,
+        "_y": 1
+      },
+      "_nbr": 10,
+      "_resource": "Wool",
+      "_isActive": true
+    },
+    {
+      "_position": {
+        "_x": 4,
+        "_y": 4
+      },
+      "_nbr": 8,
+      "_resource": "Wool",
+      "_isActive": true
+    }
+  ]
+}

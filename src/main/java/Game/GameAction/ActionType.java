@@ -1,0 +1,13 @@
+package Game.GameAction;
+
+public enum ActionType
+{
+    END_TURN,
+    BUY_DEVELOPMENT_CARD,
+    PLAY_DEVELOPMENT_CARD,
+    PLACE_SETTLEMENT,
+    PLACE_ROAD,
+    UPGRADE_TO_CITY,
+    TRADE_TO_BANK,
+    TRADE_TO_PLAYER;
+}

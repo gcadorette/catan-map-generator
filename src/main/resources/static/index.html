@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <title>Catan Generator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+<script>
+    $(function(){
+
+        $("#form").submit(function(event) {
+            event.preventDefault();
+
+            let amtOfPlayers = $("#amtOfPlayers").val();
+            let amtOfMaps = $("#amtOfMaps").val();
+            let amtOfGames = $("#amtOfGames").val();
+            let isOk = true;
+            if(amtOfPlayers > 4 || amtOfPlayers < 3)
+            {
+                isOk = false;
+            }
+            if(amtOfMaps > 100 || amtOfMaps < 5)
+            {
+                isOk = false;
+            }
+            if(amtOfGames > 100 || amtOfGames < 5)
+            {
+                isOk = false;
+            }
+            if(isOk)
+            {
+               let data = {
+                "amtOfPlayers" : parseInt(amtOfPlayers, 10),
+                "amtOfMaps" : parseInt(amtOfMaps, 10),
+               "amtOfGames": parseInt(amtOfGames, 10)
+               };
+               console.log(data);
+               $.ajax({
+                    url: "/generate?amtOfPlayers=" + amtOfPlayers + "&amtOfMaps=" + amtOfMaps + "&amtOfGames=" + amtOfGames,
+                    contentType: "application/json",
+                    timeout: 120000,
+                    success : function(results, textStatus) {
+                        $("#waiting").remove();
+                        $("#container").append("<div class='text-white'>Here is the map:</div>");
+                        console.log(results);
+                        let filename = "../../images/" + results + ".png";
+                        $("#container").append("<div class='text-white'>Green is for wood, gray is for ore, yellow is for wheat, red is for clay and white is for wool</div>");
+                        $("#container").append("<img src='" + filename + "' alt='generated map' />");
+                    },
+                    error : function(result)
+                    {
+                        $("#waiting").remove();
+                        $("#form").show();
+                        $("#message").show();
+                    }
+                })
+                $("#form").hide();
+                $("#message").hide();
+                $("#container").append('<div id="waiting" class="d-flex align-items-center text-white"><strong>The map is generating, please wait</strong><div class="spinner-border ml-auto text-primary" role="status" aria-hidden="true"></div></div>');
+            }
+            else
+            {
+                $("#form").addClass("was-validated");
+            }
+
+        });
+    });
+
+
+
+
+</script>
+<body class="bg-dark">
+<div class="container" id="container">
+    <div class="jumbotron bg-dark text-white">
+        <h1 class="display-4">Catan Generator</h1>
+        <p class="lead">With this generator, you will get a Catan map that will be balanced !
+            We use Artificial Intelligence to test the maps to make sure that they will lead to an interesting game.</p>
+        <p>You only need to tell us how many players will be playing. You can customize it further by telling us how
+            many
+            maps will be generated and how many games our AI will play per map. </p>
+        <hr class="my-4">
+        <div id="message" class="alert alert-danger" style="display:none" role="alert">There was an error, please try again !</div>
+        <form id="form" class="needs-validation" novalidate>
+            <div class="form-group" id="amtOfPlayersDiv">
+                <label for="amtOfPlayers">Amount of players</label>
+                <select class="form-control" id="amtOfPlayers">
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <div class='invalid-feedback' id='amtOfPlayersError'>Please select 3 or 4 players.</div>
+            </div>
+            <div class="form-group" id="amtOfMapsDiv">
+                <label for="amtOfMaps">Amount of generated maps (40 by default)</label>
+                <input type="number" class="form-control" id="amtOfMaps" min="5" max="100" value="40">
+                <small id="amtOfMapsHelp" class="form-text text-muted">This is the amount of maps that will be generate and tested</small>
+                <div class='invalid-feedback' id='amtOfMapsError'>Please select between 5 and 100 map generations.</div>
+            </div>
+            <div class="form-group" id="amtOfGamesDiv">
+                <label for="amtOfGames">Amount of games per map (30 by default)</label>
+                <input type="number" class="form-control" id="amtOfGames" value="30" min="5" max="100">
+                <small id="amtOfGamesHelp" class="form-text text-muted">This is the amount of tests per map.</small>
+                <div class='invalid-feedback' id='amtOfGamesError'>Please select between 5 and 100 map tests.</div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
